@@ -1,21 +1,26 @@
-# Wool Crush 核心逻辑实现
+# 消除大龙（HTML 可运行版）
 
-根据仓库中的策划文档（`doc.md`、`doc1.md`）与视频示意，完成了一个可测试的 TypeScript 核心逻辑版本，覆盖：
+已根据仓库中的文档拆解与视频玩法，实现一个**可直接运行的 HTML5 游戏 Demo**（无需构建）。
 
-- 方向射线阻挡检测（`checkPathClear`）
-- 4+3 动态槽位（`SlotManager`，含广告解锁回调）
-- 大龙推进 / 对冲 / 后退补位（`DragonSystem`）
-- 游戏入口控制器（`GameCoreController`）
-
-## 快速开始
+## 运行方式
 
 ```bash
-npm install
-npm test
-npm run build
+python3 -m http.server 4173
+# 浏览器打开 http://localhost:4173/index.html
 ```
 
-## 文件说明
+## 玩法说明（对齐视频）
 
-- `src/gameCore.ts`: 核心数据结构与系统实现
-- `src/gameCore.test.ts`: 单元测试与集成测试
+- 棋盘中是带方向箭头的彩色方块。
+- 仅当该方块在**箭头方向无遮挡**时可点击出列。
+- 方块进入上方槽位（初始 4 个可用，后 3 个会在需要时自动解锁，模拟广告解锁逻辑）。
+- 槽位会自动与大龙队首颜色匹配并消除。
+- 槽位满且当前无匹配颜色时失败；清空整条大龙即胜利。
+
+## 文件结构
+
+- `index.html`：页面结构
+- `styles.css`：界面样式
+- `game.js`：完整游戏逻辑（关卡生成、路径检测、槽位、匹配消除、大龙推进与胜负判定）
+- `video.mp4`：参考玩法视频
+- `doc.md` / `doc1.md`：功能拆解文档

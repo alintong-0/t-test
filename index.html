@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>消除大龙 - HTML Demo</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="game" id="gameRoot">
+    <header class="top-panel">
+      <canvas id="dragonCanvas" width="430" height="220"></canvas>
+      <div class="status-row">
+        <span id="dragonInfo">大龙长度: 0</span>
+        <span id="progressInfo">进度: 0%</span>
+      </div>
+      <div id="slots" class="slots"></div>
+    </header>
+
+    <main>
+      <div id="grid" class="grid"></div>
+    </main>
+
+    <footer class="controls">
+      <button id="restartBtn">重新开始</button>
+      <span id="message" class="message"></span>
+    </footer>
+  </div>
+
+  <script type="module" src="game.js"></script>
+</body>
+</html>
