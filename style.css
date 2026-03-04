@@ -1,0 +1,70 @@
+:root {
+  --bg: #070b15;
+  --panel: #111a2a;
+  --neon: #44f0ff;
+  --warn: #ff5d73;
+  --ok: #8df28d;
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background: radial-gradient(circle at 20% 20%, #17233e, var(--bg));
+  color: #ecf3ff;
+  font-family: "Segoe UI", "PingFang SC", sans-serif;
+}
+
+.game-shell {
+  width: min(96vw, 520px);
+}
+
+.hud {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
+  background: color-mix(in srgb, var(--panel), black 12%);
+  border: 1px solid #2b3c67;
+  border-radius: 12px;
+  padding: 0.75rem;
+  margin-bottom: 0.7rem;
+}
+
+.canvas-wrap {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #2b3c67;
+  box-shadow: 0 0 24px #0de2ff22;
+}
+
+canvas {
+  width: 100%;
+  height: auto;
+  display: block;
+  background: linear-gradient(#0b1020, #090d18);
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-content: center;
+  gap: 0.7rem;
+  text-align: center;
+  padding: 1rem;
+  background: #040914dd;
+}
+.overlay:not(.show) { display: none; }
+
+button {
+  border: 0;
+  border-radius: 999px;
+  padding: 0.75rem 1rem;
+  background: linear-gradient(90deg, #1ac7ff, #6ef9d4);
+  color: #04121f;
+  font-weight: 700;
+  cursor: pointer;
+}
